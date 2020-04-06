@@ -1,0 +1,18 @@
+#building Tensorflow from source code using AVX2 FMA flags
+
+docker pull tensorflow/tensorflow:devel
+
+docker run -it -w /tensorflow -v /home/kunalshah/code:/tensorflow -v $PWD:/mnt -e HOST_PERMS="$(id -u):$(id -g)" tensorflow/tensorflow:devel bash
+
+./configure
+
+bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
+
+Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -march=native]: 
+-mavx -mavx2 -mfma -mfpmath=both -msse4.1 -msse4.2
+
+./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+
+pip install /tmp/tensorflow_pkg/tensorflow-version-tags.whl
+
+docker run -u $(id -u):$(id -g) -it -p 8888:8888 --name tf-cpu -v /home/kunalshah/code:/tf/code tf21-cpu:latest
