@@ -11,4 +11,4 @@ docker run -it -p 8888:8888 --name tf-gpu -v /home/kunalshah/code:/tf/code pytho
 
 docker run -u $(id -u):$(id -g) --gpus all -it -p 8888:8888 --name tf-gpu -v /home/kunalshah/code:/tf/code tf2x-gpu:latest
 
-docker run -u $(id -u):$(id -g) -it -p 8888:8888 --name tf-cpu -v /home/kunalshah/code:/tf/code tf2x-cpu:latest
+docker run -u $(id -u):$(id -g) -it -p 8888:8888 --name tf-cpu -v /home/kunalshah/code:/tf/code tf21-cpu:latest
