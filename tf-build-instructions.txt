@@ -1,5 +1,8 @@
 #building Tensorflow from source code using AVX2 FMA flags
 
+# for the error, following link was referred to
+# https://stackoverflow.com/questions/45905378/tensorflow-gcc-error-unrecognized-command-line-option-copt-msse4-2
+
 docker pull tensorflow/tensorflow:devel
 
 docker run -it -w /tensorflow -v /home/kunalshah/code:/tensorflow -v $PWD:/mnt -e HOST_PERMS="$(id -u):$(id -g)" tensorflow/tensorflow:devel bash
