@@ -30,7 +30,7 @@ RUN ln -s $(which python3) /usr/local/bin/python
 COPY bashrc /etc/bash.bashrc
 RUN chmod a+rwx /etc/bash.bashrc
 
-RUN python3 -m pip install --upgrade jupyter tensorflow-cpu matplotlib jupyter_http_over_ws ipykernel nbformat numpy opencv-python pandas scipy matplotlib seaborn scikit-learn
+RUN python3 -m pip install --upgrade jupyter tensorflow-cpu matplotlib jupyter_http_over_ws ipykernel nbformat numpy opencv-python pandas scipy matplotlib seaborn scikit-learn tensorflow-datasets
 
 RUN jupyter serverextension enable --py jupyter_http_over_ws
 
